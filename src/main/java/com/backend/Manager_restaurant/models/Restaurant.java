@@ -20,7 +20,9 @@ public class Restaurant implements Serializable {
     private String name;
     private String img;
     private String address;
-    private String hours;
+    @ElementCollection
+    @CollectionTable(name = "hours_open", joinColumns = @JoinColumn(name = "restaurant_id"))
+    private List<HourOpen> hourOpens;
 
     // nao tirar = relacionamento de restaurante e produto
     @ManyToMany
@@ -33,14 +35,22 @@ public class Restaurant implements Serializable {
     public Restaurant(){
     }
 
-    public Restaurant(Long id, String name, String img, String address, String hours, List<Product> products, List<Promotion> promotions) {
+    public Restaurant(Long id, String name, String img, String address, String hours, List<Product> products, List<Promotion> promotions, List<HourOpen> hourOpens) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.address = address;
-        this.hours = hours;
         this.products = products;
         this.promotions = promotions;
+        this.hourOpens = hourOpens;
+    }
+
+    public List<HourOpen> getHourOpens() {
+        return hourOpens;
+    }
+
+    public void setHourOpens(List<HourOpen> hourOpens) {
+        this.hourOpens = hourOpens;
     }
 
     public List<Promotion> getPromotions() {
@@ -89,14 +99,6 @@ public class Restaurant implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getHours() {
-        return hours;
-    }
-
-    public void setHours(String hours) {
-        this.hours = hours;
     }
 
     @Override

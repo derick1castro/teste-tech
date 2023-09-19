@@ -1,5 +1,6 @@
 package com.backend.Manager_restaurant.models;
 
+import com.backend.Manager_restaurant.models.enums.DaysOfWeek;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -20,6 +21,7 @@ public class Promotion implements Serializable {
     private String description_promotional;
     private BigDecimal price_promotional;
     private String date_promotional;
+
 
     @JsonIgnore
     @ManyToMany
