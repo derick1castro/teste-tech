@@ -1,20 +1,19 @@
 package com.backend.Manager_restaurant.models;
 
 import com.backend.Manager_restaurant.models.enums.DaysOfWeek;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Embeddable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Embeddable
-public class HourOpen {
+public class HourPromotion {
     private List<DaysOfWeek> daysOfWeek = new ArrayList<>();
     private List<String> hours = new ArrayList<>();
 
-    public HourOpen(){}
+    public HourPromotion(){}
 
-    public HourOpen(List<DaysOfWeek> daysOfWeek, List<String> hours) {
+    public HourPromotion(List<DaysOfWeek> daysOfWeek, List<String> hours) {
         this.daysOfWeek = daysOfWeek;
         this.hours = hours;
     }

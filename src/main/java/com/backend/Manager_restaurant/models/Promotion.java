@@ -20,8 +20,10 @@ public class Promotion implements Serializable {
     private Long id;
     private String description_promotional;
     private BigDecimal price_promotional;
-    private String date_promotional;
 
+    @ElementCollection
+    @CollectionTable(name = "hours_promotion", joinColumns = @JoinColumn(name = "promotion_id"))
+    private List<HourPromotion> hourPromotions;
 
     @JsonIgnore
     @ManyToMany
@@ -43,13 +45,21 @@ public class Promotion implements Serializable {
 
     public Promotion(){}
 
-    public Promotion(Long id, String description_promotional, BigDecimal price_promotional, String date_promotional, List<Product> products, List<Restaurant> restaurants) {
+    public Promotion(Long id, String description_promotional, BigDecimal price_promotional, List<HourPromotion> hourPromotions, List<Product> products, List<Restaurant> restaurants) {
         this.id = id;
         this.description_promotional = description_promotional;
         this.price_promotional = price_promotional;
-        this.date_promotional = date_promotional;
+        this.hourPromotions = hourPromotions;
         this.products = products;
         this.restaurants = restaurants;
+    }
+
+    public List<HourPromotion> getHourPromotions() {
+        return hourPromotions;
+    }
+
+    public void setHourPromotions(List<HourPromotion> hourPromotions) {
+        this.hourPromotions = hourPromotions;
     }
 
     public List<Product> getProducts() {
@@ -90,14 +100,6 @@ public class Promotion implements Serializable {
 
     public void setPrice_promotional(BigDecimal price_promotional) {
         this.price_promotional = price_promotional;
-    }
-
-    public String getDate_promotional() {
-        return date_promotional;
-    }
-
-    public void setDate_promotional(String date_promotional) {
-        this.date_promotional = date_promotional;
     }
 
     @Override
