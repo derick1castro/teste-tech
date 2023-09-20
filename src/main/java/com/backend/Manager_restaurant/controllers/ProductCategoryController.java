@@ -2,12 +2,15 @@ package com.backend.Manager_restaurant.controllers;
 
 import com.backend.Manager_restaurant.dtos.ProductCategoryRecordDto;
 import com.backend.Manager_restaurant.dtos.ProductRecordDto;
+import com.backend.Manager_restaurant.exceptions.CategoryNotFoundException;
 import com.backend.Manager_restaurant.models.Product;
 import com.backend.Manager_restaurant.models.ProductCategory;
 import com.backend.Manager_restaurant.services.ProductCategoryService;
 import com.backend.Manager_restaurant.services.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,9 +39,6 @@ public class ProductCategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOneProductCategory(@PathVariable(value = "id") Long id){
         var productCategory = productCategoryService.findById(id);
-        if(productCategory == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product Category not found");
-        }
         return ResponseEntity.status(HttpStatus.OK).body(productCategory);
     }
 
@@ -46,9 +46,6 @@ public class ProductCategoryController {
     public ResponseEntity<Object> updateProductCategory(@PathVariable(value = "id") Long id,
                                                 @RequestBody ProductCategoryRecordDto productRecordDto) {
         var oldProduct = productCategoryService.findById(id);
-        if (oldProduct == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product Category not found");
-        }
         var newProduct = oldProduct;
         BeanUtils.copyProperties(productRecordDto, newProduct);
         return ResponseEntity.status(HttpStatus.OK).body(productCategoryService.save(newProduct));
@@ -57,10 +54,17 @@ public class ProductCategoryController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteProductCategory(@PathVariable(value = "id") Long id){
         var productCategory = productCategoryService.findById(id);
-        if (productCategory == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product Category not found");
+
+        try {
+            if (productCategory == null) {
+                throw new CategoryNotFoundException("Category not found for ID: " + id);
+            }
+            productCategoryService.delete(id);
+            return ResponseEntity.status(HttpStatus.OK).body("Category deleted successfully.");
+
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            throw e;
         }
-        productCategoryService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Product Category deleted successfully.");
     }
 }

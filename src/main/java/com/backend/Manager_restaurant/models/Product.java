@@ -32,7 +32,6 @@ public class Product implements Serializable {
     @ManyToMany(mappedBy = "products")
     private List<Restaurant> restaurant = new ArrayList<>();
 
-    
     @ManyToMany(mappedBy = "products")
     private List<Promotion> promotions = new ArrayList<>();
 

@@ -25,19 +25,14 @@ public class ProductService {
     private PromotionRepository promotionRepository;
 
     public Product save(Product product){
+        try {
+            return productRepository.save(product);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            throw e;
+        }
 
-        // Salvar o produto no repositório de produtos.
-        productRepository.save(product);
 
-//        // Salvar as relações entre o produto e os restaurantes.
-//        List<Promotion> promotionInRequest = product.getPromotion();
-//
-//        for (Promotion promotion : promotionInRequest) {
-//            promotion.getProducts().add(product);
-//            promotionRepository.save(promotion);
-//        }
-
-        return product;
     }
 
     public List<Product> findAll(){

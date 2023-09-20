@@ -37,7 +37,7 @@ public class ProductController {
     public ResponseEntity<Object> getOneProduct(@PathVariable(value = "id") Long id){
         var product = productService.findById(id);
         if(product == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("product not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
         }
         return ResponseEntity.status(HttpStatus.OK).body(product);
     }
@@ -47,7 +47,7 @@ public class ProductController {
                                                    @RequestBody ProductRecordDto productRecordDto) {
         var oldProduct = productService.findById(id);
         if (oldProduct == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Restaurant not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
         }
         var newProduct = oldProduct;
         BeanUtils.copyProperties(productRecordDto, newProduct);
