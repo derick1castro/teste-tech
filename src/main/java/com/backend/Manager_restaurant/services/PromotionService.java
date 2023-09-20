@@ -1,5 +1,7 @@
 package com.backend.Manager_restaurant.services;
 
+import com.backend.Manager_restaurant.exceptions.PromotionNotFoundException;
+import com.backend.Manager_restaurant.exceptions.WrongValueException;
 import com.backend.Manager_restaurant.models.Product;
 import com.backend.Manager_restaurant.models.Promotion;
 import com.backend.Manager_restaurant.repositories.ProductRepository;
@@ -25,11 +27,21 @@ public class PromotionService {
 
     public Promotion save(Promotion promotion){
 
+        if (isNumeric(promotion.getDescription_promotional())) {
+            throw new PromotionNotFoundException("Please set a valid value");
+        }
 
-         promotionRepository.save(promotion);
+         return promotionRepository.save(promotion);
+    }
 
-        return promotion;
+    private boolean isNumeric(String str) {
 
+        try {
+            Double.parseDouble(str); // Tenta converter a string em um número.
+            return true; // Se não houver exceção, a conversão foi bem-sucedida.
+        } catch (NumberFormatException e) {
+            return false; // Se ocorrer uma exceção, a string não é um número.
+        }
     }
 
     public List<Promotion> findAll(){
@@ -38,16 +50,17 @@ public class PromotionService {
     }
 
     public Promotion findById(Long id) {
+
         Optional<Promotion> promotion = promotionRepository.findById(id);
+        if (promotion.isEmpty()){
+            throw new PromotionNotFoundException("Promotion not found for ID: " + id);
+        }
         return promotion.get();
     }
     public void delete(Long id){
-        try {
-            promotionRepository.deleteById(id);
-        } catch (RuntimeException e){
-            e.printStackTrace();
-            throw e;
-        }
+
+        promotionRepository.deleteById(id);
+
     }
 
 }

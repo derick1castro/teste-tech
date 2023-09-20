@@ -37,8 +37,6 @@ public class ProductCategoryService {
         }
     }
 
-
-
     public List<ProductCategory> findAll(){
 
         return productCategoryRepository.findAll();
