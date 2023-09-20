@@ -1,5 +1,7 @@
 package com.backend.Manager_restaurant.services;
 
+import com.backend.Manager_restaurant.exceptions.CategoryNotFoundException;
+import com.backend.Manager_restaurant.exceptions.WrongValueException;
 import com.backend.Manager_restaurant.models.Product;
 import com.backend.Manager_restaurant.models.Promotion;
 import com.backend.Manager_restaurant.models.Restaurant;
@@ -25,14 +27,21 @@ public class ProductService {
     private PromotionRepository promotionRepository;
 
     public Product save(Product product){
-        try {
-            return productRepository.save(product);
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-            throw e;
+
+        if (isNumeric(product.getName())) {
+            throw new WrongValueException("Please set a valid value");
         }
+            return productRepository.save(product);
+    }
 
+    private boolean isNumeric(String str) {
 
+        try {
+            Double.parseDouble(str); // Tenta converter a string em um número.
+            return true; // Se não houver exceção, a conversão foi bem-sucedida.
+        } catch (NumberFormatException e) {
+            return false; // Se ocorrer uma exceção, a string não é um número.
+        }
     }
 
     public List<Product> findAll(){
@@ -41,15 +50,13 @@ public class ProductService {
 
     public Product findById(Long id) {
         Optional<Product> product = productRepository.findById(id);
+        if (product.isEmpty()) {
+            throw new CategoryNotFoundException("Product not found for ID: " + id);
+        }
         return product.get();
     }
     public void delete(Long id){
-        try {
-            productRepository.deleteById(id);
-        } catch (RuntimeException e){
-            e.printStackTrace();
-            throw e;
-        }
+        productRepository.deleteById(id);
     }
 
 }

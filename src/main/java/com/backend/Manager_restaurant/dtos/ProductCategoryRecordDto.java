@@ -1,4 +1,8 @@
 package com.backend.Manager_restaurant.dtos;
 
-public record ProductCategoryRecordDto(String name){
-}
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record ProductCategoryRecordDto(
+        @NotBlank @NotNull String name
+        ){}

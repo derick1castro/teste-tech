@@ -21,7 +21,7 @@ public class ProductCategoryService {
 
     public ProductCategory save(ProductCategory productCategory){
 
-        if (productCategory.getName() == null || productCategory.getName().trim().isEmpty() || isNumeric(productCategory.getName())) {
+        if (isNumeric(productCategory.getName())) {
             throw new WrongValueException("Please set a valid value");
         }
             return productCategoryRepository.save(productCategory);
@@ -36,6 +36,8 @@ public class ProductCategoryService {
             return false; // Se ocorrer uma exceção, a string não é um número.
         }
     }
+
+
 
     public List<ProductCategory> findAll(){
 

@@ -2,6 +2,7 @@ package com.backend.Manager_restaurant.exceptions.handler;
 
 import com.backend.Manager_restaurant.exceptions.CategoryNotFoundException;
 import com.backend.Manager_restaurant.exceptions.ExceptionResponse;
+import com.backend.Manager_restaurant.exceptions.ProductNotFoundException;
 import com.backend.Manager_restaurant.exceptions.WrongValueException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,12 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
     @ExceptionHandler(CategoryNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> handleCategoryNotFoundExceptions(Exception ex, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handleProductNotFoundExceptions(Exception ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
