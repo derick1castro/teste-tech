@@ -50,13 +50,10 @@ public class PromotionService {
     }
 
     public Promotion findById(Long id) {
-
-        Optional<Promotion> promotion = promotionRepository.findById(id);
-        if (promotion.isEmpty()){
-            throw new PromotionNotFoundException("Promotion not found for ID: " + id);
-        }
-        return promotion.get();
+        return promotionRepository.findById(id)
+                .orElseThrow(() -> new PromotionNotFoundException("Promotion not found for ID: " + id));
     }
+
     public void delete(Long id){
 
         promotionRepository.deleteById(id);

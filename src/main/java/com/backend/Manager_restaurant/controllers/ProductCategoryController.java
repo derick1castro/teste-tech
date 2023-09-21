@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/category/v1")
+@RequestMapping(value = "/v1/category")
 public class ProductCategoryController {
 
     @Autowired

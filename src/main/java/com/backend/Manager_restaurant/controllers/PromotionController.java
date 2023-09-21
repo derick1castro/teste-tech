@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/promotion/v1")
+@RequestMapping(value = "/v1/promotion")
 public class PromotionController {
 
     @Autowired
