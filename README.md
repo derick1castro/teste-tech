@@ -45,28 +45,28 @@ Para usar Gerenciador de Restaurantes, siga a documentação atráves do Swagger
 
 ## 🚀 Desafios/problemas que ocorreram durante a execução do projeto
 
-###Desafio 1: Problema de lazy loading: 
+### Desafio 1: Problema de lazy loading: 
 
 Descrição: Enfrentei um desafio relacionado ao carregamento preguiçoso (lazy loading) de dados ao trabalhar com nosso sistema. Isso resultou em consultas inesperadas(valores vazios) ao banco de dados e no desempenho inferior do sistema.
 
 Ações Tomadas: Investi tempo em entender as estratégias de carregamento de dados do framework que estava utilizando. Refatoramos meu código para otimizar o carregamento de entidades e certificando que estaria capturando os dados da requisição e direcionando ao banco de dados.
 
 
-###Desafio 2: Dúvidas entre utilizar o LOMBOK ou não:
+### Desafio 2: Dúvidas entre utilizar o LOMBOK ou não:
 
 Descrição: Estiive um dúvida sobre a adoção do projeto Lombok para simplificar o código e reduzir a verbosidade. No entanto, havia preocupações sobre possiveis bugs e não entendimento dos fundamentos projeto.
 
 Ações Tomadas: Realizei uma análise detalhada do Lombok e seus benefícios. Decidi não implementar o Lombok no projeto para que não pudesse ter nenhum erro futuro e o mais importante trabalhar os fundamentos. Mantive a documentação atualizada para auxiliar no entendimento do código.
 
 
-###Desafio 3: Problemas de relacionamento entre 3 entidades diferentes:
+### Desafio 3: Problemas de relacionamento entre 3 entidades diferentes:
 
 Descrição: Me deparei com desafios na gestão de relacionamentos complexos entre três entidades diferentes em nosso sistema. Esses relacionamentos levaram a problemas de integridade referencial e consultas complexas.
 
 Ações Tomadas: Estudei bastante modelagem de dados e utilizamos as capacidades de mapeamento de relacionamento oferecidas pelo framework. Desenvolvemos estratégias claras de carregamento de entidades e adotei boas práticas de banco de dados para manter a integridade dos dados.
 
 
-###Desafio 4: Problemas com o Spring Validation:
+### Desafio 4: Problemas com o Spring Validation:
 
 Descrição: Enfrentei desafios ao implementar a validação de dados usando o Spring Validation. A validação de entrada de dados dos usuários nem sempre estava sendo tratada corretamente, resultando em exceções inesperadas sobescrevendo as exceções personalizadas.
 
