@@ -2,7 +2,7 @@
 # Gerenciador de Restaurantes_Derick_Castro
 ![4452317](https://github.com/derick1castro/teste-tech/assets/104864411/05417ca6-48fa-44c6-a103-5190907d0004)
 
-> Projeto denominado "Restaurant Manager". Este projeto abrange a criação de uma RESTful API sofisticada, capaz de gerenciar os restaurantes e os produtos do seu cardápio.
+> Projeto denominado "Restaurant Manager". Este projeto abrange a criação de uma RESTful API sofisticada desenvolvida com Java 17, Spring Boot 3 e PostgreSQL, capaz de gerenciar os restaurantes e os produtos do seu cardápio.
 
 ### Ajustes e melhorias
 
@@ -20,7 +20,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-* Você instalou a versão mais recente de `<JDK>`
+* Você instalou a versão mais recente de `<JDK / PostgreSQL / PgAdmin>`
 * Você tem uma máquina `<Windows / Linux / Mac>`.
 
 ## 🚀 Instalando Gerenciador de Restaurantes
@@ -36,6 +36,8 @@ Abra um terminal na máquina de destino e navegue até o diretório onde o arqui
 Execute o aplicativo Spring Boot usando o comando java -jar nome-do-arquivo.jar (substitua "nome-do-arquivo.jar" pelo nome real do arquivo). Isso iniciará o aplicativo na máquina de destino.
 
 O aplicativo estará disponível localmente na máquina de destino, geralmente na porta padrão 8080, a menos que você tenha configurado uma porta diferente.`
+
+Crie uma DataBase chamada restaurant-api no PostgreSQL pode ser utilizando o PgAdmin para maior facilidade, após isso, de um start no projeto.
 
 ## ☕ Usando Gerenciador de Restaurantes
 
