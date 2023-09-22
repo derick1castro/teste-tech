@@ -14,6 +14,10 @@ import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -71,8 +75,8 @@ public class RestaurantController {
                 @ApiResponse(description = "Internal Error", responseCode = "500", content = @Content),
             }
         )
-    public ResponseEntity<List<Restaurant>> getAllRestaurants(){
-        return ResponseEntity.status(HttpStatus.OK).body(restaurantService.findAll());
+    public ResponseEntity<Page<Restaurant>> getAllRestaurants(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(restaurantService.findAll(pageable));
     }
 
     @GetMapping("/{id}")

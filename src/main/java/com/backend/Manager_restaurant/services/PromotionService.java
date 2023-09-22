@@ -8,6 +8,8 @@ import com.backend.Manager_restaurant.repositories.ProductRepository;
 import com.backend.Manager_restaurant.repositories.PromotionRepository;
 import com.backend.Manager_restaurant.repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,9 +46,9 @@ public class PromotionService {
         }
     }
 
-    public List<Promotion> findAll(){
+    public Page<Promotion> findAll(Pageable pageable){
 
-        return promotionRepository.findAll();
+        return promotionRepository.findAll(pageable);
     }
 
     public Promotion findById(Long id) {

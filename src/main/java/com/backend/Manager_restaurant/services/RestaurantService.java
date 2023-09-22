@@ -8,6 +8,8 @@ import com.backend.Manager_restaurant.models.Restaurant;
 import com.backend.Manager_restaurant.repositories.ProductRepository;
 import com.backend.Manager_restaurant.repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -53,8 +55,8 @@ public Restaurant save(Restaurant restaurant) {
         }
     }
 
-    public List<Restaurant> findAll(){
-        return restaurantRepository.findAll();
+    public Page<Restaurant> findAll(Pageable pageable){
+        return restaurantRepository.findAll(pageable);
     }
 
     public Restaurant findById(Long id){

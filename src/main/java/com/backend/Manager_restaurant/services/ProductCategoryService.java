@@ -7,6 +7,8 @@ import com.backend.Manager_restaurant.repositories.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,9 +39,9 @@ public class ProductCategoryService {
         }
     }
 
-    public List<ProductCategory> findAll(){
+    public Page<ProductCategory> findAll(Pageable pageable){
 
-        return productCategoryRepository.findAll();
+        return productCategoryRepository.findAll(pageable);
     }
 
     public ProductCategory findById(Long id) {
