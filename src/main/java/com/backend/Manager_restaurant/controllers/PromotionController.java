@@ -127,7 +127,7 @@ public class PromotionController {
     @Operation(summary = "Deletes a Promotion",
             description = "Deletes a Promotion",
             tags = {"Promotion"},
-            method = "PUT",
+            method = "DELETE",
             responses = {
                     @ApiResponse(description = "No content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
