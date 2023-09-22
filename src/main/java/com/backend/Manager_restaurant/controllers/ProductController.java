@@ -35,7 +35,7 @@ public class ProductController {
     @PostMapping
     @Operation(summary = "Adds a new Product",
             description = "Adds a new Product",
-            tags = {"Promotion"},
+            tags = {"Product"},
             method = "POST",
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
@@ -56,7 +56,7 @@ public class ProductController {
     @GetMapping
     @Operation(summary = "Finds all Products",
             description = "Finds all Products",
-            tags = {"Promotion"},
+            tags = {"Product"},
             method = "GET",
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
@@ -79,7 +79,7 @@ public class ProductController {
     @GetMapping("/{id}")
     @Operation(summary = "Finds a Product",
             description = "Finds a Product",
-            tags = {"Promotion"},
+            tags = {"Product"},
             method = "GET",
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
@@ -101,7 +101,7 @@ public class ProductController {
     @PutMapping("/{id}")
     @Operation(summary = "Updates a Product",
             description = "Updates a Product",
-            tags = {"Promotion"},
+            tags = {"Product"},
             method = "PUT",
             responses = {
                     @ApiResponse(description = "Updated", responseCode = "200",
@@ -125,7 +125,7 @@ public class ProductController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Deletes a Product",
             description = "Deletes a Product",
-            tags = {"Promotion"},
+            tags = {"Product"},
             method = "DELETE",
             responses = {
                     @ApiResponse(description = "No content", responseCode = "204", content = @Content),
