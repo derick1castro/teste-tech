@@ -46,7 +46,7 @@ Para usar Gerenciador de Restaurantes, siga a documentação atráves do Swagger
 
 ## 🚀 Desafios/problemas que ocorreram durante a execução do projeto
 
-Desafio 1: Problema de lazy loading:
+Desafio 1: Problema de lazy loading: /br
 Descrição: Enfrentei um desafio relacionado ao carregamento preguiçoso (lazy loading) de dados ao trabalhar com nosso sistema. Isso resultou em consultas inesperadas(valores vazios) ao banco de dados e no desempenho inferior do sistema.
 Ações Tomadas: Investi tempo em entender as estratégias de carregamento de dados do framework que estava utilizando. Refatoramos meu código para otimizar o carregamento de entidades e certificando que estaria capturando os dados da requisição e direcionando ao banco de dados.
 
