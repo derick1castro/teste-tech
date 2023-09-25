@@ -13,6 +13,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Implementação da Spring HATEOAS;
 - [x] Implementação da Metodologia de versionamento;
 - [x] Documentação atráves do Swagger(OpenAPI);
+- [ ] "Dockerização" da Aplicação;
 - [ ] Funcionalidade de filtros de pesquisas por nome e tags;
 - [ ] Login com validação de email e senha assim como a autenticação;
 - [ ] Testes unitarios utilizando Junit e Mockito.
@@ -20,7 +21,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-* Você instalou a versão mais recente de `<JDK / PostgreSQL / PgAdmin>`
+* Você instalou a versão mais recente de `<JDK / PostgreSQL / PgAdmin / Docker>`
 * Você tem uma máquina `<Windows / Linux / Mac>`.
 
 ## 🚀 Instalando Gerenciador de Restaurantes
