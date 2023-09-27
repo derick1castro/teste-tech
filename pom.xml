@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.backend</groupId>
-	<artifactId>Manager_restaurant</artifactId>
+	<artifactId>manager_restaurant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Manager_restaurant</name>
 	<description>Goomer Lista Rango</description>
