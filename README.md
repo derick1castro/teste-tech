@@ -13,7 +13,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Implementação da Spring HATEOAS;
 - [x] Implementação da Metodologia de versionamento;
 - [x] Documentação atráves do Swagger(OpenAPI);
-- [ ] "Dockerização" da Aplicação;
+- [x] "Dockerização" da Aplicação;
 - [ ] Funcionalidade de filtros de pesquisas por nome e tags;
 - [ ] Login com validação de email e senha assim como a autenticação;
 - [ ] Testes unitarios utilizando Junit e Mockito.
