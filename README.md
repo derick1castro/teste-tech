@@ -21,7 +21,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-* Você instalou a versão mais recente de `<JDK / PostgreSQL / PgAdmin / Docker>`
+* Você instalou a versão mais recente de `<JDK / PostgreSQL / PgAdmin / Docker >`
 * Você tem uma máquina `<Windows / Linux / Mac>`.
 
 ## 🚀 Instalando Gerenciador de Restaurantes
