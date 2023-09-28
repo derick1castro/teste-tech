@@ -26,9 +26,13 @@ jobs:
         cache: maven
 
     - name: Build Application JAR
-      run: mvn clean package -DskipTests
+      working-directory: ./
+      run: |
+        - pwd
+        - mvn clean package -DskipTests
 
     - name: Docker Compose Build
+      working-directory: ./
       run: docker compose build
 
     - name: List Docker Images
