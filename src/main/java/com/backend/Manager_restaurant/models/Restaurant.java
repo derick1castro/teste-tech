@@ -29,6 +29,7 @@ public class Restaurant implements Serializable {
     @JoinTable(name = "tb_restaurant_product", joinColumns = @JoinColumn(name = "restaurant_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> products = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "restaurants")
     private List<Promotion> promotions = new ArrayList<>();
 

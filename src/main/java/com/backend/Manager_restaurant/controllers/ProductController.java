@@ -44,7 +44,7 @@ public class ProductController {
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Product.class))
                     ),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
@@ -67,7 +67,7 @@ public class ProductController {
                             content = {
                                     @Content(
                                             mediaType = "application/json",
-                                            array = @ArraySchema(schema = @Schema(implementation = Restaurant.class))
+                                            array = @ArraySchema(schema = @Schema(implementation = Product.class))
                                     )
                             }),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
@@ -88,7 +88,7 @@ public class ProductController {
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Product.class))
                     ),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
@@ -110,7 +110,7 @@ public class ProductController {
             responses = {
                     @ApiResponse(description = "Updated", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Product.class))
                     ),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),

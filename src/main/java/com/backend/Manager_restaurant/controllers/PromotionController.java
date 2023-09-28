@@ -45,7 +45,7 @@ public class PromotionController {
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Promotion.class))
                     ),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
@@ -68,7 +68,7 @@ public class PromotionController {
                             content = {
                                     @Content(
                                             mediaType = "application/json",
-                                            array = @ArraySchema(schema = @Schema(implementation = Restaurant.class))
+                                            array = @ArraySchema(schema = @Schema(implementation = Promotion.class))
                                     )
                             }),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
@@ -89,7 +89,7 @@ public class PromotionController {
             responses = {
                     @ApiResponse(description = "Success", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Promotion.class))
                     ),
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
@@ -111,7 +111,7 @@ public class PromotionController {
             responses = {
                     @ApiResponse(description = "Updated", responseCode = "200",
                             content =
-                            @Content(schema = @Schema(implementation = Restaurant.class))
+                            @Content(schema = @Schema(implementation = Promotion.class))
                     ),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = @Content),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = @Content),
