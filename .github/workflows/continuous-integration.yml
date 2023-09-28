@@ -31,6 +31,9 @@ jobs:
     - name: Docker Compose Build
       run: docker compose build
 
+    - name: List Docker Images
+      run: docker images
+
     - name: Push to Docker Hub Container Registry
       run: |
         docker tag ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest
