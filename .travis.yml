@@ -1,0 +1,20 @@
+language: java
+jdk:
+  - oraclejdk17
+before_install:
+  - sudo apt-get update
+  - cd .
+  - echo "Let's start Maven Package!!!"
+  - mvn clean package
+script:
+  - docker-compose build
+before_deploy:
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+deploy:
+  provider: script
+  script:
+    docker push derickccastro/manager-restaurant;
+  on:
+    branch: main
+notifications:
+  email: false
