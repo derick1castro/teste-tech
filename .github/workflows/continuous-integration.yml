@@ -40,10 +40,10 @@ jobs:
 
     - name: Push to Docker Hub Container Registry
       run: |
-        docker tag derickccastro/manager-restaurant:latest derickccastro/manager-restaurant:${{github.run_id}}
+        docker tag manager-restaurant:latest derickccastro/manager-restaurant:${{github.run_id}}
 
         docker push derickccastro/manager-restaurant:${{github.run_id}}
-        docker push derickccastro/manager-restaurant:latest
+        docker push manager-restaurant:latest
         
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
