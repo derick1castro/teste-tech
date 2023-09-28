@@ -1,7 +1,7 @@
 
 # Gerenciador de Restaurantes_Derick_Castro
 
-[![Build Status](https://app.travis-ci.com/derick1castro/teste-tech.svg?branch=master)](https://app.travis-ci.com/derick1castro/teste-tech)
+[![Docker Hub Repo](https://img.shields.io/docker/pulls/derickccastro/manager-restaurant.svg)](https://hub.docker.com/repository/docker/derickccastro/manager-restaurant)
 
 ![4452317](https://github.com/derick1castro/teste-tech/assets/104864411/05417ca6-48fa-44c6-a103-5190907d0004)
 
