@@ -32,6 +32,7 @@ jobs:
         mvn clean package -DskipTests
 
     - name: Docker Compose Build
+      working-directory: ./
       run: docker compose build
 
     - name: List Docker Images
