@@ -32,11 +32,12 @@ jobs:
       run: docker compose build
 
     - name: Push to Docker Hub Container Registry
-      run: 
-        docker tag ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:{{ github.run_id }}
+      run: |
+        docker tag ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest
+        docker tag ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:${{ github.run_id }}
 
-        docker push ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:{{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/manager-restaurant:${{ github.run_id }}
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
