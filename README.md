@@ -17,6 +17,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Implementação da Metodologia de versionamento;
 - [x] Documentação atráves do Swagger(OpenAPI);
 - [x] "Dockerização" da Aplicação;
+- [x] Implementação do GitHub Actions CI/CD a aplicação;
 - [ ] Funcionalidade de filtros de pesquisas por nome e tags;
 - [ ] Login com validação de email e senha assim como a autenticação;
 - [ ] Testes unitarios utilizando Junit e Mockito.
